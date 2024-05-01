@@ -21,7 +21,29 @@ const PostSchema = new Schema({
     creationDate: {
         type: Date,
         default: Date.now()
-    } 
+    },
+
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    },
+
+    categories: {
+        type: Schema.Types.ObjectId,
+        ref: 'Categories'
+    },
+
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'comment'
+        }
+    ],
+
+    allowComments: {
+        type: Boolean,
+        default: false
+    }
 
 
 

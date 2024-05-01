@@ -3,7 +3,7 @@
 
     <div class="row p-4">
         <div class="col-md-10">
-            <form action="/admin/posts/edit/{{post._id}}?newMethod=PUT" method="post">
+            <form action="/admin/posts/create" method="post">
 
                 <div class="form-group">
                     <label for="title">Title</label>
@@ -23,15 +23,13 @@
                 <div class="form-group">
                     <label for="category">Category</label>
                     <select name="category" id="category" class="form-control">
-                        {{#select post.category}}
-                            {{#each categories}}
-                                <option value="{{_id}}">{{title}}</option>    
-                            {{/each}}                            
-                        {{/select}}
+                        {{#each categories}}
+                            <option value="{{_id}}">{{title}}</option>    
+                        {{/each}}
+                                             
                     </select>
                 </div>
-
-
+                
 
                 <div class="form-check ml-3">
                     <label for="allowComments">
@@ -46,7 +44,7 @@
                 </div>
 
 
-                <button class="btn btn-outline-warning btn-lg" type="submit">Update Post</button>
+                <button class="btn btn-outline-success btn-lg" type="submit">Create Post</button>
 
 
             </form>
