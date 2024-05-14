@@ -23,7 +23,13 @@
                 <td>{{description}}</td>
                 <td>{{status}}</td>
                 <td>{{allowComments}}</td>
-                <td>{{categories}}</td>
+                {{!-- <td>{{categories}}</td> --}}
+                <td>
+    {{#each categories}}
+        {{this.title}}
+        {{#unless @last}}, {{/unless}}
+    {{/each}}
+</td>
                 <td class="d-flex">
                     <a href="/admin/posts/edit/{{_id}}" class="btn btn-sm btn-warning mr-2">Edit Post</a>
  <form action="/admin/posts/delete/{{_id}}?newMethod=DELETE" method="post">

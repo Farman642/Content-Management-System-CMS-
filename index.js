@@ -10,6 +10,8 @@ const session = require("express-session");
 const {gloabVariable} =require("./middleware/config")
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const {selectOption} =require('./confirg/coustConfig');
+const fileUpload = require('express-fileupload');
 
 
 const app = express();
@@ -33,8 +35,10 @@ app.use(flash());
 app.use(gloabVariable)
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(fileUpload());
+
 // Setup view engine
-app.engine('handlebars',engine({defaultLayout: 'default'}));
+app.engine('handlebars',engine({defaultLayout: 'default' , helpers: {select:selectOption}}));
 app.set('view engine' , 'handlebars');
 
 app.use(methodOverride('newMethod'));
